@@ -1,0 +1,40 @@
+.root {
+  width: 420px;
+  padding: 30px;
+
+  background-color: var(--color-dark-700);
+  border-color: var(--color-border-primary);
+  border-radius: 2px;
+  box-shadow:
+    1px 1px 2px rgb(0 0 0 / 10%),
+    -1px -1px 2px rgb(0 0 0 / 10%);
+
+  > h2 {
+    margin-bottom: 27px;
+    text-align: center;
+  }
+}
+
+.textField {
+  margin-bottom: 24px;
+}
+
+.forgotPassword {
+  cursor: pointer;
+
+  display: flex;
+  justify-content: flex-end;
+
+  margin-right: 12px;
+  margin-bottom: 66px;
+}
+
+.button {
+  margin-bottom: 20px;
+}
+
+.signIp {
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+}
