@@ -11,13 +11,15 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
-    'indent': ['error', 2],
+    'indent': 'off',
     'import/no-extraneous-dependencies': 'off',
     'linebreak-style': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/require-default-props': 'off',
     'react/destructuring-assignment': 'off',
+    'no-param-reassign': 'off',
+    'implicit-arrow-linebreak': 'off', // Отключение правила implicit-arrow-linebreak
     'object-curly-newline': ['error', {
       multiline: true,
       consistent: true,
