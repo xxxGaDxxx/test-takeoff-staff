@@ -1,26 +1,38 @@
 import RegisterForm from '@/components/auth/registerForm/RegisterForm.tsx';
-import { useState } from 'react';
-import { LoginArgs } from '@/components/auth/schemaForms.ts';
-import authApi from '@/api/authApi.ts';
+import { useAppDispatch, useAppSelector } from '@/store/store.ts';
+import { useNavigate } from 'react-router-dom';
+import { AuthArgs } from '@/api/type.ts';
+import { register } from '@/store/slice/auth.slice.ts';
+import { PATH } from '@/common/constants/routePath.ts';
+import { useEffect } from 'react';
 
 const RegisterPage = () => {
-  const [i, setI] = useState(false);
-  const onSubmit = async (data: LoginArgs) => {
-    console.log('data', data);
-    setI(true);
-    try {
-      const res = await authApi.register({ email: data.email, password: data.password });
+  const isLoading = useAppSelector((state) => state.auth.loading);
+  const isLogin = useAppSelector((state) => state.auth.isLogin);
+  const isRegister = useAppSelector((state) => state.auth.isRegister);
+  const dispatch = useAppDispatch();
 
-      console.log('res', res);
-    } catch (e) {
-      console.log('e', e);
-    } finally {
-      setI(false);
-    }
+  const navigate = useNavigate();
+
+  const onSubmit = (data: AuthArgs) => {
+    dispatch(register(data));
   };
+
+  useEffect(() => {
+    if (isLogin) {
+      navigate(PATH.CONTACTS);
+    }
+  }, [isLogin, navigate]);
+
+  useEffect(() => {
+    if (isRegister) {
+      navigate(PATH.LOGIN);
+    }
+  }, [isRegister, navigate]);
+
   return (
     <div>
-      <RegisterForm onSubmit={onSubmit} isSubmitting={i} />
+      <RegisterForm onSubmit={onSubmit} isSubmitting={isLoading} />
     </div>
   );
 };

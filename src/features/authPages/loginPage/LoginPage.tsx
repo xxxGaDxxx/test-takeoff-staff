@@ -1,34 +1,32 @@
-import { useState } from 'react';
-import { LoginArgs } from '@/components/auth/schemaForms.ts';
-import authApi from '@/api/authApi.ts';
 import LoginForm from '@/components/auth/loginForm/LoginForm.tsx';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '@/store/store.ts';
+import { AuthArgs } from '@/api/type.ts';
+import { login } from '@/store/slice/auth.slice.ts';
 import { PATH } from '@/common/constants/routePath.ts';
+import { useEffect } from 'react';
 
 const LoginPage = () => {
+  const isLoading = useAppSelector((state) => state.auth.loading);
+  const isLogin = useAppSelector((state) => state.auth.isLogin);
+  const dispatch = useAppDispatch();
+
   const navigate = useNavigate();
 
-  const [i, setI] = useState(false);
-  const onSubmit = async (data: LoginArgs) => {
-    setI(true);
-    try {
-      const res = await authApi.login(data);
-
-      const accessToken = res?.data?.accessToken;
-      const userId = res?.data?.user.id;
-      sessionStorage.setItem('accessToken', accessToken);
-      sessionStorage.setItem('userId', String(userId));
-      console.log('res', res.data);
-      navigate(PATH.CONTACTS);
-    } catch (e) {
-      console.log('e', e);
-    } finally {
-      setI(false);
-    }
+  const onSubmit = async (data: AuthArgs) => {
+    await dispatch(login(data));
+    navigate(PATH.CONTACTS);
   };
+
+  useEffect(() => {
+    if (isLogin) {
+      navigate(PATH.CONTACTS);
+    }
+  }, [isLogin, navigate]);
+
   return (
     <div>
-      <LoginForm onSubmit={onSubmit} isSubmitting={i} />
+      <LoginForm onSubmit={onSubmit} isSubmitting={isLoading} />
     </div>
   );
 };
