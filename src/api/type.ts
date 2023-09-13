@@ -1,11 +1,11 @@
-export type User = {
+export type UserType = {
   email: string;
   id: number;
 };
 
 export type AuthResponse = {
   accessToken: string;
-  user: User;
+  user: UserType;
 };
 
 export type AuthArgs = {
