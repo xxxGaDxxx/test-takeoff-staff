@@ -1,7 +1,7 @@
-import Pages from '@/routePages/pages.tsx';
+import Router from '@/routePages/router.tsx';
 
 function App() {
-  return <Pages />;
+  return <Router />;
 }
 
 export default App;
