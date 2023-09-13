@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "email": "qwe@gmail.com",
+      "password": "$2a$10$V/93uLpMu5OQtU9ax3Q4i.8VKqqWWP8UWOIOsDX7ZUvF5tryFlYgy",
+      "id": 1
+    },
+    {
+      "email": "user2@gmail.com",
+      "password": "$2a$10$Cw6ALN6RmL/sy0Hs0ho45.iXETQd./4iho9j8W60NfutqpAK6V7ie",
+      "id": 2
+    }
+  ],
+  "contacts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "Contact 1",
+      "phone": "123-456-7890"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "name": "Contact 2",
+      "phone": "987-654-3210"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "name": "Contact 3",
+      "phone": "555-555-5555"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "name": "Contact 4",
+      "phone": "777-777-7777"
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "name": "Contact 5",
+      "phone": "111-222-3333"
+    },
+    {
+      "id": 6,
+      "userId": 2,
+      "name": "Contact 1",
+      "phone": "222-333-4444"
+    },
+    {
+      "id": 7,
+      "userId": 2,
+      "name": "Contact 2",
+      "phone": "444-555-6666"
+    },
+    {
+      "id": 8,
+      "userId": 2,
+      "name": "Contact 3",
+      "phone": "666-777-8888"
+    }
+  ]
+}
