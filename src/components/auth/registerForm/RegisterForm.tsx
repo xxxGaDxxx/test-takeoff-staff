@@ -1,26 +1,26 @@
 import { SubmitHandler } from 'react-hook-form';
-import { LoginArgs, useLoginForm } from '@/components/auth/schemaForms.ts';
 import { Typography } from '@/components/ui-toolkit/typography/Typography.tsx';
-import ControlledInput from '@/components/ui-toolkit/controlled/controlledInput.tsx';
 import { Button } from '@/components/ui-toolkit/button/Button.tsx';
+import ControlledInput from '@/components/ui-toolkit/controlled/controlledInput.tsx';
+import { RegisterFormType, useRegisterForm } from '@/components/auth/schemaForms.ts';
 import { PATH } from '@/common/constants/routePath.ts';
 import { useNavigate } from 'react-router-dom';
 import styles from '../Auth.module.scss';
 
-type LoginFormProps = {
-  onSubmit: SubmitHandler<LoginArgs>;
+type RegisterFormProps = {
+  onSubmit: SubmitHandler<RegisterFormType>;
   isSubmitting: boolean;
 };
 
-const LoginForm = ({ isSubmitting, onSubmit }: LoginFormProps) => {
-  const { control, handleSubmit } = useLoginForm(onSubmit);
+const RegisterForm = ({ onSubmit, isSubmitting }: RegisterFormProps) => {
+  const { control, handleSubmit } = useRegisterForm(onSubmit);
 
   const navigate = useNavigate();
 
   return (
     <div className={styles.root}>
       <Typography variant="h1" as="h2">
-        Sign In
+        Signe Up
       </Typography>
       <form onSubmit={handleSubmit}>
         <ControlledInput
@@ -42,25 +42,30 @@ const LoginForm = ({ isSubmitting, onSubmit }: LoginFormProps) => {
           containerProps={{ className: styles.textField }}
         />
 
+        <ControlledInput
+          label="Confirm Password"
+          name="confirmPassword"
+          control={control}
+          type="password"
+          placeholder="confirm password"
+          autoComplete="current-confirm password"
+          containerProps={{ className: styles.textField }}
+        />
+
         <Button type="submit" fullWidth className={styles.button} disabled={isSubmitting}>
-          Sign In
+          Sign Up
         </Button>
       </form>
 
       <Typography as="p" variant="body" className={styles.questionParagraph}>
-        Don&apos;t have an account?
+        Already have an account?
       </Typography>
 
-      <Button
-        variant="link"
-        as="a"
-        onClick={() => navigate(PATH.REGISTER)}
-        className={styles.signUp}
-      >
-        Sign Up
+      <Button as="a" variant="link" onClick={() => navigate(PATH.LOGIN)} className={styles.signUp}>
+        Sign In
       </Button>
     </div>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

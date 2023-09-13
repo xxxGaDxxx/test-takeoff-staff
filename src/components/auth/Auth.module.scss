@@ -33,7 +33,14 @@
   margin-bottom: 20px;
 }
 
-.signIp {
+.questionParagraph {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 11px;
+  color: var(--color-light-900);
+}
+
+.signUp {
   display: flex;
   justify-content: center;
   text-decoration: underline;
