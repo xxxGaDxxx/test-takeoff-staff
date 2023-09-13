@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouteObject, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouteObject, RouterProvider } from 'react-router-dom';
 import { PATH } from '@/common/constants/routePath.ts';
 import PrivateRoutes from '@/routePages/privateRoutes.tsx';
 import LoginPage from '@/features/authPages/loginPage/LoginPage.tsx';
@@ -19,6 +19,14 @@ const publicRoutes: RouteObject[] = [
   {
     path: PATH.ERROR,
     element: <ErrorPage />,
+  },
+  {
+    path: '/',
+    element: <Navigate to={PATH.CONTACTS} replace />,
+  },
+  {
+    path: '/*',
+    element: <Navigate to={PATH.ERROR} replace />,
   },
 ];
 
