@@ -1,6 +1,7 @@
 import { instance } from '@/api/config.ts';
 import {
   AddedContactArgs,
+  ContactType,
   DeleteContactArgs,
   GetContactsArgs,
   UpdateContactArgs,
@@ -8,7 +9,7 @@ import {
 
 const contactsApi = {
   getContacts({ userId, accessToken }: GetContactsArgs) {
-    return instance.get(`/contacts?userId=${userId}`, {
+    return instance.get<ContactType[]>(`/contacts?userId=${userId}`, {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
   },

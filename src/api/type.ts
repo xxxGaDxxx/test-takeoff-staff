@@ -24,3 +24,24 @@ export type ContactType = {
   name: string;
   phone: string;
 };
+
+export type GetContactsArgs = {
+  userId: number;
+  accessToken: string;
+};
+
+export type AddedContactArgs = Omit<ContactType, 'id'> & {
+  accessToken: string;
+};
+
+export type UpdateContactArgs = {
+  contactId: number;
+  accessToken: string;
+  name?: string;
+  phone?: string;
+};
+
+export type DeleteContactArgs = {
+  contactId: number;
+  accessToken: string;
+};
