@@ -21,6 +21,10 @@
   &:focus {
     outline: none;
   }
+
+  @media (width < 580px) {
+    max-width: 90%;
+  }
 }
 
 .header {
