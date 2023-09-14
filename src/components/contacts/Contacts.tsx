@@ -31,7 +31,7 @@ const Contacts: FC<ContactsProps> = ({ onUpdateContact, onDeleteContact, contact
     }
   };
 
-  const onSubmit = async (data: ModalArgs) => {
+  const handleUpdate = (data: ModalArgs) => {
     if (selectedContact) {
       onUpdateContact({ ...selectedContact, ...data });
     }
@@ -65,7 +65,7 @@ const Contacts: FC<ContactsProps> = ({ onUpdateContact, onDeleteContact, contact
         titleModal="Update contact"
         isLoading={isLoading}
         onOpenChange={setIsOpenUpdateModal}
-        onSubmit={onSubmit}
+        onSubmit={handleUpdate}
       />
     </div>
   );

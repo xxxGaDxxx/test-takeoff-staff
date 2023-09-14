@@ -23,7 +23,7 @@ const ContactItem: FC<ContactItemProps> = ({ contact, onUpdateModal, onDeleteMod
 
   return (
     <div className={styles.root}>
-      <Typography variant="body" as="span">
+      <Typography variant="body" as="span" className={styles.name}>
         {contact.name}
       </Typography>
       <Typography variant="body" as="span">

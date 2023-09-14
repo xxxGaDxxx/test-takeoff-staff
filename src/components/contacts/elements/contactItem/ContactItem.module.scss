@@ -9,6 +9,23 @@
 
   background-color: var(--color-dark-700);
   border-radius: var(--border-radius-s);
+
+  @media (width < 490px) {
+    gap: 20px;
+  }
+}
+
+.name {
+  max-width: 200px;
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (width < 490px) {
+    max-width: 80px;
+    width: 70px;
+  }
 }
 
 .container {
