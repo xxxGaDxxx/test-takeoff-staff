@@ -2,7 +2,7 @@ import { ComponentProps, FC, ReactNode } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { Typography } from '@/components/ui-toolkit/typography/Typography.tsx';
 import CloseIcon from '@/assets/icons/CloseIcon.tsx';
-import styles from './modal.module.scss';
+import styles from './Modal.module.scss';
 
 export type ModalType = {
   children?: ReactNode;

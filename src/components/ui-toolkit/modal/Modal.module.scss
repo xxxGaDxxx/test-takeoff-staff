@@ -4,8 +4,7 @@
   inset: 0;
 
   opacity: 0.7;
-
-  animation: overlay-show 450ms cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: var(--color-dark-300);
 }
 
 .dialogContent {

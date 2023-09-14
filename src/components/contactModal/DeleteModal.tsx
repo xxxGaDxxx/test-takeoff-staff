@@ -2,7 +2,7 @@ import { FC, useEffect } from 'react';
 import { Typography } from '@/components/ui-toolkit/typography/Typography.tsx';
 import { DeleteContactModalProps } from '@/components/contactModal/types.ts';
 import Loader from '@/components/ui-toolkit/loader/Loader.tsx';
-import { Modal } from '@/components/ui-toolkit/modal/modal.tsx';
+import { Modal } from '@/components/ui-toolkit/modal/Modal.tsx';
 import { Button } from '@/components/ui-toolkit/button/Button.tsx';
 import styles from './ContactModals.module.scss';
 

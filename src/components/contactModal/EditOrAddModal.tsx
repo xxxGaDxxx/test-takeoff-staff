@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import { useModalForm } from '@/components/contactModal/schemaModalForm.ts';
 import { EditOrAddModalProps } from '@/components/contactModal/types.ts';
-import { Modal } from '@/components/ui-toolkit/modal/modal.tsx';
+import { Modal } from '@/components/ui-toolkit/modal/Modal.tsx';
 import { Button } from '@/components/ui-toolkit/button/Button.tsx';
 import ControlledInput from '@/components/ui-toolkit/controlled/controlledInput.tsx';
 import styles from './ContactModals.module.scss';
@@ -73,7 +73,7 @@ const EditOrAddModal: FC<EditOrAddModalProps> = ({
           <Button variant="secondary" onClick={onCloseModal}>
             Close
           </Button>
-          <Button type="submit" variant="primary">
+          <Button type="submit" variant="primary" disabled={isLoading}>
             Save
           </Button>
         </div>
