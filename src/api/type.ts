@@ -45,3 +45,9 @@ export type DeleteContactArgs = {
   contactId: number;
   accessToken: string;
 };
+
+export type SearchContactArgs = {
+  search: string;
+  userId: number;
+  accessToken: string;
+};

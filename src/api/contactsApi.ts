@@ -4,6 +4,7 @@ import {
   ContactType,
   DeleteContactArgs,
   GetContactsArgs,
+  SearchContactArgs,
   UpdateContactArgs,
 } from '@/api/type.ts';
 
@@ -35,6 +36,11 @@ const contactsApi = {
         headers: { Authorization: `Bearer ${accessToken}` },
       },
     );
+  },
+  searchContact({ userId, search, accessToken }: SearchContactArgs) {
+    return instance.get(`contacts?userId=${userId}&q=${search}`, {
+      headers: { Authorization: `Bearer ${accessToken}` },
+    });
   },
 };
 

@@ -1,4 +1,4 @@
-import { ContactType, UpdateContactArgs } from '@/api/type.ts';
+import { ContactType, SearchContactArgs, UpdateContactArgs } from '@/api/type.ts';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppThunk } from '@/store/store.ts';
 import { toast } from 'react-toastify';
@@ -133,6 +133,28 @@ export const addContacts =
           toast.success('Yay, you added a new contact');
           dispatch(getContacts());
         }
+      } catch (err) {
+        if (axios.isAxiosError(err)) {
+          toast.error(err?.response?.data);
+        }
+      }
+    }
+    dispatch(setLoading({ loading: false }));
+  };
+
+export const searchContact =
+  (params: Omit<SearchContactArgs, 'accessToken'>): AppThunk =>
+  async (dispatch) => {
+    dispatch(setLoading({ loading: true }));
+    const accessToken = sessionStorage.getItem('accessToken');
+
+    if (accessToken) {
+      try {
+        const { data } = await contactsApi.searchContact({
+          ...params,
+          accessToken,
+        });
+        dispatch(setDataContacts(data));
       } catch (err) {
         if (axios.isAxiosError(err)) {
           toast.error(err?.response?.data);
