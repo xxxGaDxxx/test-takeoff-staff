@@ -1,0 +1,25 @@
+.containerInfo{
+  display: flex;
+  flex-direction: column;
+
+
+  .container{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    &:first-child{
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.textField {
+  margin-bottom: 24px;
+}
+
+.containerButton {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
