@@ -3,6 +3,7 @@ import Header from '@/components/layout/header/Header.tsx';
 import { useAppDispatch, useAppSelector } from '@/store/store.ts';
 import { setDataUser, setIsAuthorized } from '@/store/slice/auth.slice.ts';
 import { PATH } from '@/common/constants/routePath.ts';
+import { setDataContacts } from '@/store/slice/contacts.slice.ts';
 import styles from './Layout.module.scss';
 
 const Layout = () => {
@@ -15,6 +16,7 @@ const Layout = () => {
     sessionStorage.clear();
     dispatch(setIsAuthorized({ isLogin: false }));
     dispatch(setDataUser({ data: null }));
+    dispatch(setDataContacts([]));
     navigate(PATH.LOGIN);
   };
 
