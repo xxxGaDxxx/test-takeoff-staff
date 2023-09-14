@@ -22,7 +22,7 @@ const contactsApi = {
       },
     );
   },
-  deleteContacts(params: DeleteContactArgs) {
+  deleteContact(params: DeleteContactArgs) {
     return instance.delete<ResponseType>(`contacts/${params.contactId}`, {
       headers: { Authorization: `Bearer ${params.accessToken}` },
     });

@@ -37,8 +37,8 @@ export type AddedContactArgs = Omit<ContactType, 'id'> & {
 export type UpdateContactArgs = {
   contactId: number;
   accessToken: string;
-  name?: string;
-  phone?: string;
+  name: string;
+  phone: string;
 };
 
 export type DeleteContactArgs = {

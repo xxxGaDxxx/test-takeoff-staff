@@ -2,10 +2,12 @@ import { AnyAction, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { authReducer } from '@/store/slice/auth.slice.ts';
+import { contactsReducer } from '@/store/slice/contacts.slice.ts';
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    contacts: contactsReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().prepend(thunk),
 });
